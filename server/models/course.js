@@ -2,12 +2,18 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const CourseSchema = new Schema(
-  {
-    name: String,
+const CourseSchema = new Schema({
+  name: {
     type: String,
-    location: String,
+    required: true,
   },
+  type: {
+    type: String,
+    required: true,
+  },
+  location: String,
+  },
+
   {
     timestamps: true,
     versionKey: false,

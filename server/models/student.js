@@ -6,7 +6,7 @@ const StudentSchema = new Schema(
   {
     firstName: String,
     lastName: String,
-    course: Number,
+    course: String,
   },
   {
     timestamps: true,
