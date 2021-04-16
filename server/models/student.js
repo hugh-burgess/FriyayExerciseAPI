@@ -2,10 +2,15 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const StudentSchema = new Schema(
-  {
-    firstName: String,
-    lastName: String,
+const StudentSchema = new Schema({ 
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
     course: String,
   },
   {
