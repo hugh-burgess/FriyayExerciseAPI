@@ -51,24 +51,26 @@ app.get("/courses/:courseId", (req, res) => {
 // Get All Students In A Course
 app.get("/courses/:courseId/students", (req, res) => {
   const { courseId } = req.params;
-  Student.find({ course: courseId }).then((students) => {
-    if (students.course !== courseId) {
-      console.log("Not Found!");
-      res.json({ error: "Not Found! Please enter a correct courseId" });
-    } else {
+  Course.findById(courseId).then(course => {
+
+    if (course) {
+    Student.find({ course: courseId }).then((students => {
       console.log(students);
       res.json(students);
       res.status(200);
-    }
-  });
-});
-
+    });
+     else {
+        console.log("Not Found!");
+        res.json({ error: "Not Found! Please enter a correct courseId" });
+        
+      };
+    )}})}
 // Get Single Student From Specific Course
 app.get("/courses/:courseId/students/:studentId", (req, res) => {
   const { studentId, courseId } = req.params;
-  Student.findById(courseId && studentId)
+  Student.find({ course: courseId, _id: studentId })
     .then((students) => {
-      if (students.course === courseId) {
+      if (students) {
         console.log(students);
         res.json(students);
         res.status(200);
