@@ -26,15 +26,9 @@ app.get("/", (req, res) => {
 // Get All Courses
 app.get("/courses", (req, res) => {
   Course.find().then((courses) => {
-    if (![]) {
-      console.log(courses);
-      res.json(courses);
-      res.status(200);
-    } else {
-      res.status(404);
-      console.log("Not Found!");
-      res.json("Not Found!");
-    }
+    console.log(courses);
+    res.json(courses);
+    res.status(200);
   });
 });
 
@@ -95,15 +89,9 @@ app.get("/courses/:courseId/students/:studentId", (req, res) => {
 // Get All Students
 app.get("/students", (req, res) => {
   Student.find().then((students) => {
-    if (![]) {
-      console.log(students);
-      res.json(students);
-      res.status(200);
-    } else {
-      res.status(404);
-      console.log("Not Found!");
-      res.json("Not Found!");
-    }
+    console.log(students);
+    res.json(students);
+    res.status(200);
   });
 });
 
